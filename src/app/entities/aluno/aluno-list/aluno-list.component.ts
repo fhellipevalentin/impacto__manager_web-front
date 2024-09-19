@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NavbarComponent } from '../../../components/navbar/navbar.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
@@ -6,6 +6,17 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Alunos } from 'src/app/model/Alunos.model';
 import { AlunoService } from '../../../services/aluno.service';
 import { PageEvent } from '@angular/material/paginator';
+import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+
+import {
+    MatDialog,
+    MatDialogActions,
+    MatDialogClose,
+    MatDialogContent,
+    MatDialogTitle,
+  } from '@angular/material/dialog';
+import { DeleteAlunoComponent } from 'src/app/components/system-dialogs/alunos-dialog/delete-aluno/delete-aluno.component';
 
 export interface PeriodicElement {
     name: string;
@@ -17,7 +28,7 @@ export interface PeriodicElement {
 @Component({
     selector: 'app-aluno-list',
     standalone: true,
-    imports: [NavbarComponent, MatTableModule, MatCardModule, MatPaginator],
+    imports: [NavbarComponent, MatTableModule, MatCardModule, MatPaginator, RouterModule, MatIconModule],
     templateUrl: './aluno-list.component.html',
     styleUrl: './aluno-list.component.css',
 })
@@ -27,13 +38,15 @@ export class AlunoListComponent implements OnInit{
 
     }
 
+    readonly dialog = inject(MatDialog);
+
     ngOnInit(): void {
         this.showData(this.pagina, this.tamanho)
     }
 
     alunoList: Alunos[] = [];
 
-    displayedColumns: string[] = ['id', 'nome', 'cpf', 'sexo', 'dataNascimento', 'telefone'];
+    displayedColumns: string[] = ['id', 'nome', 'cpf', 'sexo', 'dataNascimento', 'telefone', 'options'];
     totalElementos = 0
     pagina = 0
     tamanho = 10
@@ -54,4 +67,12 @@ export class AlunoListComponent implements OnInit{
         this.pagina = event.pageIndex
         this.showData(this.pagina, this.tamanho)
     }
+
+    openDialogDeletarAluno(aluno: Alunos) {
+        this.dialog.open(DeleteAlunoComponent, {
+            width: '300px',
+            data: aluno,
+        })
+      }
+
 }

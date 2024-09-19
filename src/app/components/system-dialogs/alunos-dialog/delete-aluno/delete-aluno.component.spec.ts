@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './home.component';
+import { DeleteAlunoComponent } from './delete-aluno.component';
 
-describe('HomeComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('DeleteAlunoComponent', () => {
+  let component: DeleteAlunoComponent;
+  let fixture: ComponentFixture<DeleteAlunoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent]
+      imports: [DeleteAlunoComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(DeleteAlunoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

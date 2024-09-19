@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>Deletar Aluno</h1>
+<mat-dialog-content>Você gostaria de deletar este Aluno: {{ aluno.nome }} ?</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close (click)="close()">Não</button>
+  <button mat-button mat-dialog-close cdkFocusInitial (click)="confirmaDelete(aluno.id)">Sim</button>
+</mat-dialog-actions>
+

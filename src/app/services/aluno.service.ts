@@ -1,13 +1,20 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Errors } from '../errors/Errors';
 import { catchError, Observable, retry } from 'rxjs';
+import { Alunos } from '../model/Alunos.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlunoService {
+
+  authorizationAccess = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }
 
   URLbase : string = environment.rootUrl;
   private errorHandle : Errors = new Errors;
@@ -20,6 +27,14 @@ export class AlunoService {
     .set('page', pagina)
     .set('size', linhasPorPagina)
     return this.http.get<any> (`${this.URLbase}/api/aluno/page?${params.toString()}`)
+    .pipe (
+      retry(1),
+      catchError(this.errorHandle.appError)
+    )
+  }
+
+  deletarAlunoPorId(id: any) {
+    return this.http.delete<Alunos>(`${this.URLbase}/api/aluno/${id}`, this.authorizationAccess)
     .pipe (
       retry(1),
       catchError(this.errorHandle.appError)
