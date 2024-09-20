@@ -70,5 +70,21 @@
                 <mat-label>Telefone do Responsavel2: </mat-label>
                 <input [(ngModel)]="aluno.telefoneResponsavel02" matInput name="telefoneResponsavel02">
             </mat-form-field>
+            <ng-container *ngIf="aluno.turmas.length">
+                <mat-form-field *ngFor="let item of aluno.turmas; let i = index" appearance="fill">
+                    <mat-label>Turmas: </mat-label>
+                    <input matInput [(ngModel)]="aluno.turmas[1].nome" name="aluno.turmas[{{i}}].nome">
+                        <button mat-icon-button (click)="removeTurma(i)" aria-label="Remove Turma">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                </mat-form-field>
+            </ng-container>
+
+            <ng-container *ngIf="aluno.id">
+                <button type="button" mat-raised-button (click)="openDialog(aluno)"
+                    aria-label="Add Turma" matTooltip="Add Turma">
+                    <mat-icon>add</mat-icon>
+                </button>
+            </ng-container>
         </form>
 </mat-card>

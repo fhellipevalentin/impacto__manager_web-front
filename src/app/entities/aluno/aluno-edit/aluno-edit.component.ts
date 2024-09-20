@@ -1,14 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatCard, MatCardModule, MatCardTitle } from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { provideNativeDateAdapter } from '@angular/material/core';
-import { MatDatepickerModule, MatDatepickerToggle } from '@angular/material/datepicker';
-import { MatFormFieldModule, MatHint, MatLabel } from '@angular/material/form-field';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialog } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs';
+import { AddTurmaComponent } from 'src/app/components/system-dialogs/turma/add-turma/add-turma.component';
 import { Alunos } from 'src/app/model/Alunos.model';
+import { Turmas } from 'src/app/model/Turma.model';
 import { AlunoService } from 'src/app/services/aluno.service';
 
 
@@ -21,7 +25,9 @@ import { AlunoService } from 'src/app/services/aluno.service';
     MatFormFieldModule, 
     MatInputModule, 
     MatDatepickerModule, 
-    MatIconModule],
+    MatIconModule,
+    CommonModule
+  ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './aluno-edit.component.html',
   styleUrl: './aluno-edit.component.css'
@@ -29,10 +35,12 @@ import { AlunoService } from 'src/app/services/aluno.service';
 export class AlunoEditComponent implements OnInit {
 
   aluno!:Alunos;
+  turmas!: Turmas;
 
   constructor(
     public route: ActivatedRoute,
-    public alunoService: AlunoService
+    public alunoService: AlunoService,
+    private dialog: MatDialog
   ) {
     this.aluno = new Alunos();
   }
@@ -46,12 +54,28 @@ export class AlunoEditComponent implements OnInit {
     ).subscribe({
       next: aluno => {
         this.aluno = aluno;
+        console.log(aluno)
       }
     })
   }
 
   submit() {
+    
+  }
 
+  addTurma() {
+    this.aluno.turmas.push(new Turmas());  
+  }
+
+  removeTurma(index: number) {
+    this.aluno.turmas.slice(index, 1);
+  }
+
+  openDialog(aluno: Alunos): void {
+    this.dialog.open(AddTurmaComponent, {
+      width: '250px',
+      data: aluno
+    })
   }
 
 }

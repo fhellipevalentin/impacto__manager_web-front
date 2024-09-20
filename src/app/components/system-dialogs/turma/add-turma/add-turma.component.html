@@ -1,0 +1,13 @@
+<div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Turmas</mat-label>
+      <mat-select [(ngModel)]="turmaSelecionada" name="turmas">
+        <mat-option *ngFor="let turma of turmaList; let i = index" [value]="turma" >
+          {{turma.nome}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div mat-dialog-actions>
+      <button mat-button (click)="incluirTurma()">Incluir</button>
+    </div>
+  </div>
