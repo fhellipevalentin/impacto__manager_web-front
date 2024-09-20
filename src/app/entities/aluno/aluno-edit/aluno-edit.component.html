@@ -73,7 +73,7 @@
             <ng-container *ngIf="aluno.turmas.length">
                 <mat-form-field *ngFor="let item of aluno.turmas; let i = index" appearance="fill">
                     <mat-label>Turmas: </mat-label>
-                    <input matInput [(ngModel)]="aluno.turmas[1].nome" name="aluno.turmas[{{i}}].nome">
+                    <input matInput [(ngModel)]="aluno.turmas[i].nome" name="aluno.turmas[{{i}}].nome">
                         <button mat-icon-button (click)="removeTurma(i)" aria-label="Remove Turma">
                             <mat-icon>delete</mat-icon>
                         </button>
@@ -86,5 +86,10 @@
                     <mat-icon>add</mat-icon>
                 </button>
             </ng-container>
+
+            <div align="center">
+                <button mat-stroked-button color="primary">Salvar</button>
+            </div>
+
         </form>
 </mat-card>

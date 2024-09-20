@@ -49,6 +49,14 @@ export class AlunoService {
     )
   }
 
+  editAluno(id:any, novoRegistro: any): Observable<Alunos> {
+    return this.http.put<Alunos>(`${this.URLbase}/api/aluno/${id}`, novoRegistro)
+    .pipe(
+      retry(1),
+      catchError(this.errorHandle.appError)
+    )
+  }
+
   deletarAlunoPorId(id: any) {
     return this.http.delete<Alunos>(`${this.URLbase}/api/aluno/${id}`, this.authorizationAccess)
     .pipe (

@@ -2,7 +2,7 @@
     <mat-form-field appearance="fill">
       <mat-label>Turmas</mat-label>
       <mat-select [(ngModel)]="turmaSelecionada" name="turmas">
-        <mat-option *ngFor="let turma of turmaList; let i = index" [value]="turma" >
+        <mat-option *ngFor="let turma of turmaList; let i = index" [value]="turma.nome" >
           {{turma.nome}}
         </mat-option>
       </mat-select>

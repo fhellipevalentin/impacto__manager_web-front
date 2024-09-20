@@ -8,7 +8,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { ActivatedRoute } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, switchMap } from 'rxjs';
 import { AddTurmaComponent } from 'src/app/components/system-dialogs/turma/add-turma/add-turma.component';
 import { Alunos } from 'src/app/model/Alunos.model';
@@ -40,7 +41,9 @@ export class AlunoEditComponent implements OnInit {
   constructor(
     public route: ActivatedRoute,
     public alunoService: AlunoService,
-    private dialog: MatDialog
+    public snackBar: MatSnackBar,
+    private dialog: MatDialog,
+    public router: Router
   ) {
     this.aluno = new Alunos();
   }
@@ -60,7 +63,21 @@ export class AlunoEditComponent implements OnInit {
   }
 
   submit() {
-    
+    this.alunoService.editAluno(this.aluno.id, this.aluno).subscribe(
+      () => {
+        this.snackBar.open('Aluno atualizado com sucesso!', 'Fechar', {
+          duration: 3000,
+        });
+      this.router.navigate(['aluno-list'])
+      console.log(this.aluno)
+      },
+      (error) => {
+        console.error('Erro ao atualizar o aluno:', error);
+        this.snackBar.open('Erro ao atualizar o aluno.', 'Fechar', {
+          duration: 3000,
+        });
+      }   
+    )
   }
 
   addTurma() {
@@ -68,7 +85,7 @@ export class AlunoEditComponent implements OnInit {
   }
 
   removeTurma(index: number) {
-    this.aluno.turmas.slice(index, 1);
+    this.aluno.turmas.splice(index, 1);
   }
 
   openDialog(aluno: Alunos): void {

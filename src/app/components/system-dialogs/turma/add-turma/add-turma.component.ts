@@ -31,6 +31,7 @@ export class AddTurmaComponent implements OnInit{
 
   ngOnInit(): void {
     this.mostrarDados();
+    console.log(this.aluno)
   }
 
   mostrarDados() {
@@ -42,9 +43,11 @@ export class AddTurmaComponent implements OnInit{
 
   addTurma(obj: Turmas) {
     this.aluno.turmas.push(new Turmas({id: obj.id, nome: obj.nome}))
+    console.log(obj.nome)
   }
 
   incluirTurma() {
+    console.log(this.turmaSelecionada)
     this.addTurma(this.turmaSelecionada)
     this.dialogRef.close()
   }
