@@ -7,7 +7,6 @@ import { routes } from './app.routes'
 import { registerLocaleData } from "@angular/common";
 import localePt from '@angular/common/locales/pt'
 import { provideAnimations } from "@angular/platform-browser/animations";
-import { MatDatepickerModule } from "@angular/material/datepicker";
 
 registerLocaleData(localePt);
 
@@ -16,7 +15,6 @@ export const appConfig: ApplicationConfig = {
         provideRouter(routes),
         provideHttpClient(),
         provideAnimations(),
-        MatDatepickerModule,
         { provide: LOCALE_ID, useValue: 'pt-BR' }
     ]
 }

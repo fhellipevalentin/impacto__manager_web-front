@@ -33,6 +33,14 @@ export class AlunoService {
     )
   }
 
+  acessarAlunoPorId(id: any): Observable<Alunos>{
+    return this.http.get<Alunos>(`${this.URLbase}/api/aluno/${id}`)
+    .pipe (
+      retry(1),
+      catchError(this.errorHandle.appError)
+    )
+  }
+
   inserirAluno(novoRegistro: any): Observable<Alunos> {
     return this.http.post<Alunos>(`${this.URLbase}/api/aluno`, novoRegistro)
     .pipe(

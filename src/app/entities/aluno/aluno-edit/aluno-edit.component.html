@@ -1,0 +1,74 @@
+<mat-card>
+    <mat-card-title>Editar Livro </mat-card-title>
+        <form (ngSubmit)="submit()" class="form">
+            <mat-form-field  appearance="fill">
+                <mat-label>ID: </mat-label>
+                <input [(ngModel)]="aluno.id" matInput name="id">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Nome: </mat-label>
+                <input [(ngModel)]="aluno.nome" matInput name="nome">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>CPF: </mat-label>
+                <input [(ngModel)]="aluno.cpf" matInput name="cpf">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Sexo: </mat-label>
+                <input [(ngModel)]="aluno.sexo" matInput name="sexo">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Data de Nascimento: </mat-label>
+                <input matInput [matDatepicker]="picker1" [(ngModel)]="aluno.dataNascimento" matInput name="dataNascimento">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1" class="arrow">
+                      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    </mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Telefone: </mat-label>
+                <input [(ngModel)]="aluno.telefone" matInput name="telefone">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>CEP: </mat-label>
+                <input [(ngModel)]="aluno.cep" matInput name="cep">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Rua: </mat-label>
+                <input [(ngModel)]="aluno.rua" matInput name="rua">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Bairro: </mat-label>
+                <input [(ngModel)]="aluno.bairro" matInput name="bairro">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Cidade: </mat-label>
+                <input [(ngModel)]="aluno.cidade" matInput name="cidade">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Nº: </mat-label>
+                <input [(ngModel)]="aluno.numeroCasa" matInput name="numeroCasa">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Commplemento: </mat-label>
+                <input [(ngModel)]="aluno.complemento" matInput name="complemento">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Responsavel: </mat-label>
+                <input [(ngModel)]="aluno.responsavel01" matInput name="responsavel01">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Telefone do Responsavel: </mat-label>
+                <input [(ngModel)]="aluno.telefoneResponsavel01" matInput name="telefoneResponsavel1">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Responsavel2: </mat-label>
+                <input [(ngModel)]="aluno.responsavel02" matInput name="responsavel02">
+            </mat-form-field>
+            <mat-form-field  appearance="fill">
+                <mat-label>Telefone do Responsavel2: </mat-label>
+                <input [(ngModel)]="aluno.telefoneResponsavel02" matInput name="telefoneResponsavel02">
+            </mat-form-field>
+        </form>
+</mat-card>

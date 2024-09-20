@@ -14,10 +14,10 @@ export class Alunos {
     cidade: string | null;
     numeroCasa: string | null;
     complemento: string | null;
-    responsavel1: string | null;
-    telefoneResponsavel1: string | null;
-    responsavel2: string | null;
-    telefoneResponsavel2: string | null; 
+    responsavel01: string | null;
+    telefoneResponsavel01: string | null;
+    responsavel02: string | null;
+    telefoneResponsavel02: string | null; 
 
     turmas: Turmas[];
 
@@ -34,10 +34,10 @@ export class Alunos {
         this.cidade = alunos?.cidade || '';
         this.numeroCasa = alunos?.numeroCasa || '';
         this.complemento = alunos?.complemento || '';
-        this.responsavel1 = alunos?.responsavel1 || '';
-        this.telefoneResponsavel1 = alunos?.telefoneResponsavel1 || '';
-        this.responsavel2 = alunos?.responsavel2 || '';
-        this.telefoneResponsavel2 = alunos?.telefoneResponsavel2 || '';
+        this.responsavel01 = alunos?.responsavel01 || '';
+        this.telefoneResponsavel01 = alunos?.telefoneResponsavel01 || '';
+        this.responsavel02 = alunos?.responsavel02 || '';
+        this.telefoneResponsavel02 = alunos?.telefoneResponsavel02 || '';
 
 
         this.turmas = alunos?.turmas || [];

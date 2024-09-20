@@ -70,10 +70,10 @@ montarForm() {
     cidade: new FormControl ('', Validators.required),
     numeroCasa: new FormControl ('', Validators.required),
     complemento: new FormControl ('', Validators.required),
-    responsavel1: new FormControl ('', Validators.required),
-    telefoneResponsavel1: new FormControl ('', Validators.required),
-    responsavel2: new FormControl ('', Validators.required),
-    telefoneResponsavel2: new FormControl ('', Validators.required), 
+    responsavel01: new FormControl ('', Validators.required),
+    telefoneResponsavel01: new FormControl ('', Validators.required),
+    responsavel02: new FormControl ('', Validators.required),
+    telefoneResponsavel02: new FormControl ('', Validators.required), 
 
     turmas: this.formBuilder.array<Turmas>([]),
     
