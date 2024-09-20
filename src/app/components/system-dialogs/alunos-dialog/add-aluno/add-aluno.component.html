@@ -1,0 +1,143 @@
+<mat-card>
+
+    <mat-card-title>Registrar um Aluno</mat-card-title>
+    <form [formGroup]="formulary" (ngSubmit)="submit()">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input formControlName="nome" matInput>
+            <div *ngIf="formulary.get('nome')?.errors">
+                <div *ngIf="formulary.get('nome')?.errors?.['required'] && !formulary.get('nome')?.pristine">*Campo Nome é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>CPF</mat-label>
+            <input formControlName="cpf" matInput>
+            <div *ngIf="formulary.get('cpf')?.errors">
+                <div *ngIf="formulary.get('cpf')?.errors?.['required'] && !formulary.get('cpf')?.pristine">*Campo CPF é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Sexo</mat-label>
+            <input formControlName="sexo" matInput>
+            <div *ngIf="formulary.get('sexo')?.errors">
+              <div *ngIf="formulary.get('sexo')?.errors?.['required'] && !formulary.get('sexo')?.pristine">*Campo Sexo é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+          
+        <mat-form-field appearance="fill">
+            <mat-label>Data de Nascimento: </mat-label>
+            <input matInput [matDatepicker]="picker1"  
+           formControlName="dataNascimento">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matIconSuffix [for]="picker1" class="arrow">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+              </mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>  
+          
+        <mat-form-field appearance="fill">
+            <mat-label>Telefone</mat-label>
+            <input formControlName="telefone" matInput>
+            <div *ngIf="formulary.get('telefone')?.errors">
+                <div *ngIf="formulary.get('telefone')?.errors?.['required'] && !formulary.get('telefone')?.pristine">*Campo Telefone é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>CEP</mat-label>
+            <input formControlName="cep" matInput>
+            <div *ngIf="formulary.get('cep')?.errors">
+                <div *ngIf="formulary.get('cep')?.errors?.['required'] && !formulary.get('cep')?.pristine">*Campo CEP é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Rua</mat-label>
+            <input formControlName="rua" matInput>
+            <div *ngIf="formulary.get('rua')?.errors">
+                <div *ngIf="formulary.get('rua')?.errors?.['required'] && !formulary.get('rua')?.pristine">*Campo Rua é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Bairro</mat-label>
+            <input formControlName="bairro" matInput>
+            <div *ngIf="formulary.get('bairro')?.errors">
+                <div *ngIf="formulary.get('bairro')?.errors?.['required'] && !formulary.get('bairro')?.pristine">*Campo Bairro é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input formControlName="cidade" matInput>
+            <div *ngIf="formulary.get('cidade')?.errors">
+                <div *ngIf="formulary.get('cidade')?.errors?.['required'] && !formulary.get('cidade')?.pristine">*Campo Cidade é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Nº</mat-label>
+            <input formControlName="numeroCasa" matInput>
+            <div *ngIf="formulary.get('numeroCasa')?.errors">
+                <div *ngIf="formulary.get('numeroCasa')?.errors?.['required'] && !formulary.get('numeroCasa')?.pristine">*Campo Numero é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Complemento</mat-label>
+            <input formControlName="complemento" matInput>
+            <div *ngIf="formulary.get('complemento')?.errors">
+                <div *ngIf="formulary.get('complemento')?.errors?.['required'] && !formulary.get('complemento')?.pristine">*Campo Complemento é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Responsável</mat-label>
+            <input formControlName="responsavel1" matInput>
+            <div *ngIf="formulary.get('responsavel1')?.errors">
+                <div *ngIf="formulary.get('responsavel1')?.errors?.['required'] && !formulary.get('responsavel1')?.pristine">*Campo Responsavel é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Telefone do Responsável</mat-label>
+            <input formControlName="telefoneResponsavel1" matInput>
+            <div *ngIf="formulary.get('telefoneResponsavel1')?.errors">
+                <div *ngIf="formulary.get('telefoneResponsavel1')?.errors?.['required'] && !formulary.get('telefoneResponsavel1')?.pristine">*Campo Telefone do Responsável é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Responsavel 2</mat-label>
+            <input formControlName="responsavel2" matInput>
+            <div *ngIf="formulary.get('responsavel2')?.errors">
+                <div *ngIf="formulary.get('responsavel2')?.errors?.['required'] && !formulary.get('responsavel2')?.pristine">*Campo Responsavel2 <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Telefone do Responsável 2</mat-label>
+            <input formControlName="telefoneResponsavel2" matInput>
+            <div *ngIf="formulary.get('telefoneResponsavel2')?.errors">
+                <div *ngIf="formulary.get('telefoneResponsavel2')?.errors?.['required'] && !formulary.get('telefoneResponsavel2')?.pristine">* Campo Telefone do Responsavel2 é <strong>obrigatório</strong></div>
+            </div>
+        </mat-form-field>
+        <div class="add">
+            <button mat-raised-button type="button" (click)="addTurma()">Adicionar Turmas</button>
+          </div>
+        <div formArrayName="turmas">
+            <div *ngFor="let authorForm of turmaFormArray.controls; let i=index" [formGroupName]="i">
+              <mat-form-field appearance="fill">
+                <mat-label>Turmas</mat-label>
+                <mat-select formControlName="id">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let turma of turmaList" [value]="turma.id">
+                    {{turma.nome}}
+                  </mat-option>
+                </mat-select>
+                <button (click)="deleteTurma(i)" class="delete">
+                    <mat-icon>delete</mat-icon>
+                </button>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div align="center">
+            <button mat-stroked-button color="primary">Registrar</button>
+          </div>
+    </form>
+    <mat-card-actions align="end">
+        <button mat-button (click)="close()">Voltar</button>
+      </mat-card-actions>
+</mat-card>

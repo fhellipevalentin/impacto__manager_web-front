@@ -1,6 +1,7 @@
 <app-navbar/>
 
 <mat-card appearance="outlined" style="padding: 2%;">
+  <button mat-button (click)="openDialogAddAluno()" >Cadastro</button>
   <table mat-table [dataSource]="alunoList" class="mat-elevation-z8 ">
 
   <ng-container matColumnDef="id">

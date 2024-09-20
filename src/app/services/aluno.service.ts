@@ -33,6 +33,14 @@ export class AlunoService {
     )
   }
 
+  inserirAluno(novoRegistro: any): Observable<Alunos> {
+    return this.http.post<Alunos>(`${this.URLbase}/api/aluno`, novoRegistro)
+    .pipe(
+        retry(1),
+        catchError(this.errorHandle.appError)
+    )
+  }
+
   deletarAlunoPorId(id: any) {
     return this.http.delete<Alunos>(`${this.URLbase}/api/aluno/${id}`, this.authorizationAccess)
     .pipe (

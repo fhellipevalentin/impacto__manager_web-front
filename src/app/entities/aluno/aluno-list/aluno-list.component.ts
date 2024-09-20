@@ -1,21 +1,18 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { NavbarComponent } from '../../../components/navbar/navbar.component';
-import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
-import { MatPaginator } from '@angular/material/paginator';
-import { Alunos } from 'src/app/model/Alunos.model';
-import { AlunoService } from '../../../services/aluno.service';
-import { PageEvent } from '@angular/material/paginator';
-import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { RouterModule } from '@angular/router';
+import { Alunos } from 'src/app/model/Alunos.model';
+import { NavbarComponent } from '../../../components/navbar/navbar.component';
+import { AlunoService } from '../../../services/aluno.service';
 
+import { MatButton } from '@angular/material/button';
 import {
-    MatDialog,
-    MatDialogActions,
-    MatDialogClose,
-    MatDialogContent,
-    MatDialogTitle,
-  } from '@angular/material/dialog';
+    MatDialog
+} from '@angular/material/dialog';
+import { AddAlunoComponent } from 'src/app/components/system-dialogs/alunos-dialog/add-aluno/add-aluno.component';
 import { DeleteAlunoComponent } from 'src/app/components/system-dialogs/alunos-dialog/delete-aluno/delete-aluno.component';
 
 export interface PeriodicElement {
@@ -28,7 +25,7 @@ export interface PeriodicElement {
 @Component({
     selector: 'app-aluno-list',
     standalone: true,
-    imports: [NavbarComponent, MatTableModule, MatCardModule, MatPaginator, RouterModule, MatIconModule],
+    imports: [NavbarComponent, MatTableModule, MatCardModule, MatPaginator, RouterModule, MatIconModule, MatButton],
     templateUrl: './aluno-list.component.html',
     styleUrl: './aluno-list.component.css',
 })
@@ -74,5 +71,12 @@ export class AlunoListComponent implements OnInit{
             data: aluno,
         })
       }
+    
+    openDialogAddAluno() {
+        this.dialog.open(AddAlunoComponent, {
+            width: '485px',
+            height: '800px'
+        })
+    }
 
 }
