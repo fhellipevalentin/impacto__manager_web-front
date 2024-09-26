@@ -1,14 +1,21 @@
 <mat-toolbar>
-    <span><a (click)="navigate('home')" style="cursor: default;">Impacto Manager</a></span>
+    <span><a routerLink="/home" style="cursor: default;">Impacto Manager</a></span>
     <div class="button-config">
-        <button mat-button style="border-radius: 50px" color="primary" (click)="navigate('aluno-list')" >
-            Aluno
+        <button mat-button style="border-radius: 50px" color="primary" routerLinkActive="active" *ngIf="user.authStatus=='AUTH'" >
+            <a routerLink="/aluno-list"> Aluno </a>
         </button>
-        <button mat-button style="border-radius: 50px" color="primary" >
+        <button mat-button style="border-radius: 50px" color="primary" routerLinkActive="active" *ngIf="user.authStatus=='AUTH'" >
             Professor
         </button>
-        <button mat-button style="border-radius: 50px" color="primary">
+        <button mat-button style="border-radius: 50px" color="primary" routerLinkActive="active" *ngIf="user.authStatus=='AUTH'" >
             Turma
+        </button>
+        <button mat-button style="border-radius: 50px" color="primary" routerLinkActive="active" *ngIf="user.authStatus!='AUTH'">
+            <a routerLink="/login">Login</a>
+        </button>
+        <button mat-button style="border-radius: 50px" color="primary" routerLinkActive="active" *ngIf="user.authStatus=='AUTH'"
+        (click)="logout()">
+            Logout
         </button>
     </div>
 </mat-toolbar>

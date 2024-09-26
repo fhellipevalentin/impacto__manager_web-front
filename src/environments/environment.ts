@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  rootUrl : "https://impacto-manager.onrender.com"
+  rootUrl : "http://localhost:8080"
 };
 
 /*

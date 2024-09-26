@@ -18,7 +18,7 @@ import { TurmaService } from 'src/app/services/turma.service';
 })
 export class AddTurmaComponent implements OnInit{
 
-  turmaSelecionada!: Turmas;
+  turmaSelecionada: Turmas = new Turmas();
   turmaList!: Turmas[];
 
   constructor(
@@ -42,7 +42,7 @@ export class AddTurmaComponent implements OnInit{
   }
 
   addTurma(obj: Turmas) {
-    this.aluno.turmas.push(new Turmas({id: obj.id, nome: obj.nome}))
+    this.aluno.turmas.push(new Turmas({id: obj.id, nome: obj.nome}));
     console.log(obj.nome)
   }
 
