@@ -1,13 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../../app.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenu } from "@angular/material/menu";
 import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { User } from 'src/app/model/user.model';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-navbar',
@@ -17,7 +16,6 @@ import { User } from 'src/app/model/user.model';
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
-    MatMenu,
     MatMenuModule,
     CommonModule,
     RouterModule

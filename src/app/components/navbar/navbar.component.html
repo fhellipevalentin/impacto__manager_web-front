@@ -1,9 +1,15 @@
 <mat-toolbar>
     <span><a routerLink="/home" style="cursor: default;">Impacto Manager</a></span>
     <div class="button-config">
-        <button mat-button style="border-radius: 50px" color="primary" routerLinkActive="active" *ngIf="user.authStatus=='AUTH'" >
-            <a routerLink="/aluno-list"> Aluno </a>
+        
+        <button mat-button [matMenuTriggerFor]="alunoMenu" style="border-radius: 50px" color="primary" routerLinkActive="active" *ngIf="user.authStatus=='AUTH'" >
+            Aluno
         </button>
+        <mat-menu #alunoMenu="matMenu" >
+            <button mat-menu-item routerLinkActive="active" *ngIf="user.authStatus=='AUTH'">
+                <a routerLink="/aluno-list"> Lista </a>
+            </button>
+        </mat-menu>
         <button mat-button style="border-radius: 50px" color="primary" routerLinkActive="active" *ngIf="user.authStatus=='AUTH'" >
             Professor
         </button>
